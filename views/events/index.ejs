@@ -1,0 +1,47 @@
+<%- include("../partials/header.ejs") %>
+
+<%- include("../partials/menu.ejs") %>
+
+<h1>Listado de eventos</h1>
+<div class="container">
+    <a class="btn btn-primary" href="/events/create" role="button">Nuevo</a>
+</div>
+<br/>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre corto</th>
+                <th scope="col">Nombre largo</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Cupo</th>
+                <th scope="col">Precio</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var i=0; i<eventData.length; i++) { %>
+                <tr>
+                    <th scope="row"><%=i+1%></th>
+                    <td><%=eventData[i].sortname%></td>
+                    <td><%=eventData[i].longname%></td>
+                    <td><%=eventData[i].description%></td>
+                    <td><%=eventData[i].date%></td>
+                    <td><%=eventData[i].time%></td>
+                    <td><%=eventData[i].quota%></td>
+                    <td><%=eventData[i].price%></td>
+                    <td>
+                        <a class="btn btn-primary" href="/events/view/<%=eventData[i]._id%>" role="button">Visualizar</a>    
+                        <a class="btn btn-primary" href="/events/update/<%=eventData[i]._id%>" role="button">Editar</a>
+                        <a class="btn btn-danger" href="/events/delete/<%=eventData[i]._id%>" role="button">Eliminar</a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,43 @@
+{
+    "_id" : ObjectId("5ac92782ba1687df5bea3eb1"),
+    "sortname" : "t",
+    "longname" : "r",
+    "description" : "r",
+    "date" : "2018-04-07",
+    "time" : "09:34",
+    "quota" : "400",
+    "remaining" : 385,
+    "price" : "400",
+    "img_branding" : "r",
+    "contacto" : "Para dudas enviar correo a soporte@e-tickets.com.mx",
+    "politicas" : "En caso de cancelación no se delvolverá su dinero",
+    "lugar" : "CUCEA",
+    "ubicacion" : "",
+    "maximo_numero_boletos_por_cliente" : "50",
+    "dias_limite_previo_eventos" : 3,
+    "tickets_purchased" : [
+        {
+            "date" : "2018-03-17",
+            "time" : "21:00",
+            "customer" : {
+                "firstname" : "J. Alejandro",
+                "lastname" : "Sánchez O.",
+                "phone" : "Sánchez O.",
+                "email" : "jasanchezo@gmail.com"
+            },
+            "quantity" : 15
+        }
+    ]
+}
+
+
+{
+    "eventero" : "asanchez",
+    "nombre" : "Juan Perez",
+    "apellido" : "Perez",
+    "datos fiscales" : "",
+    "cuenta_bancaria" : ""
+}
+
+
+USAR UNA API

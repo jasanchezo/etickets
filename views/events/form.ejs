@@ -1,0 +1,152 @@
+<%- include("../partials/header.ejs") %>
+
+<%- include("../partials/menu.ejs") %>
+
+<%# https://getbootstrap.com/docs/4.0/components/forms/ %>
+<%# https://github.com/mde/ejs/blob/master/docs/syntax.md %>
+<% if (eventData[0].displayModeOfForm == "create") { %>
+    <h1>Creación de evento</h1>
+<% } else if (eventData[0].displayModeOfForm == "read") { %>
+    <h1>Detalle de evento</h1>
+<% } else if (eventData[0].displayModeOfForm == "update") { %>
+    <h1>Edición de evento</h1>
+<% } %>
+<br/>
+<div class="container">
+    <% if (eventData[0].displayModeOfForm == "create") { %>
+        <form method="POST" action="/events/post">
+    <% } else if (eventData[0].displayModeOfForm == "read") { %>
+        <form>
+    <% } else if (eventData[0].displayModeOfForm == "update") { %>
+        <form method="POST" action="/events/put">
+    <% } %>
+        <% if (eventData[0].displayModeOfForm == "update") { %>
+            <div class="form-group row">
+                <label for="_id" class="col-sm-2 col-form-label">_id</label>
+                <div class="col-sm-10">
+                    <% if (eventData[0].displayModeOfForm == "create") { %>
+                        <input type="text" class="form-control" id="_id" name="_id">
+                    <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                        <input readonly type="text" class="form-control" id="_id" name="_id" value="<%=eventData[1]._id%>">
+                    <% } else { %>
+                        <input readonly type="text" class="form-control" id="_id" name="_id" value="<%=eventData[1]._id%>">
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    
+        <div class="form-group row">
+            <label for="sortname" class="col-sm-2 col-form-label">Nombre corto</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <input type="text" class="form-control" id="sortname" name="sortname">
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <input readonly type="text" class="form-control" id="sortname" name="sortname" value="<%=eventData[1].sortname%>">
+                <% } else { %>
+                    <input type="text" class="form-control" id="sortname" name="sortname" value="<%=eventData[1].sortname%>">
+                <% } %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="longname" class="col-sm-2 col-form-label">Nombre largo</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <input type="text" class="form-control" id="longname" name="longname">
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <input readonly type="text" class="form-control" id="longname" name="longname" value="<%=eventData[1].longname%>">
+                <% } else { %>
+                    <input type="text" class="form-control" id="longname" name="longname" value="<%=eventData[1].longname%>">
+                <% } %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="description" class="col-sm-2 col-form-label">Descripción</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <textarea rows="5" class="form-control" id="description" name="description"></textarea>
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <textarea rows="5" class="form-control" id="description" name="description" value="<%=eventData[1].description%>"><%=eventData[1].description%></textarea>
+                <% } else { %>
+                    <textarea rows="5" class="form-control" id="description" name="description" value="<%=eventData[1].description%>"><%=eventData[1].description%></textarea>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="date" class="col-sm-2 col-form-label">Fecha</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <input type="date" class="form-control" id="date" name="date">
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <input readonly type="date" class="form-control" id="date" name="date" value="<%=eventData[1].date%>">
+                <% } else { %>
+                    <input type="date" class="form-control" id="date" name="date" value="<%=eventData[1].date%>">
+                <% } %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="time" class="col-sm-2 col-form-label">Hora</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <input type="time" class="form-control" id="time" name="time">
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <input readonly type="time" class="form-control" id="time" name="time" value="<%=eventData[1].time%>">
+                <% } else { %>
+                    <input type="time" class="form-control" id="time" name="time" value="<%=eventData[1].time%>">
+                <% } %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="quota" class="col-sm-2 col-form-label">Cupo</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <input type="number" class="form-control" id="quota" name="quota">
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <input readonly type="number" class="form-control" id="quota" name="quota" value="<%=eventData[1].quota%>">
+                <% } else { %>
+                    <input type="number" class="form-control" id="quota" name="quota" value="<%=eventData[1].quota%>">
+                <% } %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="price" class="col-sm-2 col-form-label">Precio</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <input type="number" class="form-control" id="price" name="price">
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <input readonly type="number" class="form-control" id="price" name="price" value="<%=eventData[1].price%>">
+                <% } else { %>
+                    <input type="number" class="form-control" id="price" name="price" value="<%=eventData[1].price%>">
+                <% } %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="img_branding" class="col-sm-2 col-form-label">Imagen de promosión</label>
+            <div class="col-sm-10">
+                <% if (eventData[0].displayModeOfForm == "create") { %>
+                    <input type="text" class="form-control" id="img_branding" name="img_branding">
+                <% } else if (eventData[0].displayModeOfForm == "read") { %>
+                    <input readonly type="text" class="form-control" id="img_branding" name="img_branding" value="<%=eventData[1].img_branding%>">
+                <% } else { %>
+                    <input type="text" class="form-control" id="img_branding" name="img_branding" value="<%=eventData[1].img_branding%>">
+                <% } %>
+            </div>
+        </div>
+
+        <% if ((eventData[0].displayModeOfForm == "create") || (eventData[0].displayModeOfForm == "update")) { %>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        <% } %>
+    </form>
+</div>
+
+<%- include("../partials/footer.ejs") %>

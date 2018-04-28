@@ -1,0 +1,91 @@
+<%- include("../partials/header.ejs") %>
+
+<%- include("../partials/menu.ejs") %>
+
+<h1>Vista de evento</h1>
+<br/>
+<div class="container">
+    <div class="container">
+        <form>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.sortname%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.longname%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.description%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.date%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.time%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.quota%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.remaining%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.price%>
+                </label>
+            </div>
+            <div class="form-group row">
+                <label for="sortname" class="col-sm-10 col-form-label">
+                    <%=eventData.img_branding%>
+                </label>
+            </div>
+        </form>
+    </div>
+    <br/>
+    <div class="container">
+        <h3>Tickets vendidos</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i=0; i<eventData.tickets_purchased.length; i++) { %>
+                    <tr>
+                        <th scope="row"><%=i+1%></th>
+                        <td><%=eventData.tickets_purchased[i].date%></td>
+                        <td><%=eventData.tickets_purchased[i].time%></td>
+                        <td><%=eventData.tickets_purchased[i].customer.firstname%> <%=eventData.tickets_purchased[i].customer.lastname%></td>
+                        <td><%=eventData.tickets_purchased[i].customer.phone%></td>
+                        <td><%=eventData.tickets_purchased[i].customer.email%></td>
+                        <td><%=eventData.tickets_purchased[i].quantity%></td>
+                        <td></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>
