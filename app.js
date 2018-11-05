@@ -34,7 +34,7 @@ appExpress.use(bodyParserLib.json());
 const conektaLib = require('conekta');
 
 // LLAVE PUBLICA https://admin.conekta.com/settings/keys
-conektaLib.api_key = 'key_JpRn8ax6roqqEGRLrsKSVg';
+conektaLib.api_key = 'key_-------------';
 conektaLib.locale = 'es';
 
 conektaLib.api_version = '2.0.0';
